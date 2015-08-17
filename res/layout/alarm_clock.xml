@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alarm_whiteish" >
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/time_background"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp" />
+
+    <ListView
+        android:id="@+id/alarms_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:layout_below="@id/textClock"
+        android:descendantFocusability="beforeDescendants" />
+
+    <com.shamanland.fab.FloatingActionButton
+        android:id="@+id/alarm_add_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/textClock"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="-32dp"
+        android:contentDescription="@string/add_alarm"
+        android:elevation="20dp"
+        android:src="@drawable/ic_action_new"
+        app:floatingActionButtonColor="@color/my_fab_color" />
+
+    <TextView
+        android:id="@+id/alarms_empty_view"
+        style="@style/no_alarms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textClock"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/no_alarms"
+        android:drawableTop="@drawable/ic_noalarms"
+        android:paddingBottom="88dp"
+        android:text="@string/no_alarms"
+        android:textColor="@color/color_light_blue_100" />
+
+    <FrameLayout
+        android:id="@+id/undo_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <com.deepak.myclock.widget.ActionableToastBar
+            android:id="@+id/undo_bar"
+            style="@style/ToastBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="64dip"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="96dp"
+            android:layout_marginEnd="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginLeft="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginRight="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginStart="@dimen/alarm_undo_bar_horizontal_margin" />
+    </FrameLayout>
+
+</RelativeLayout>
